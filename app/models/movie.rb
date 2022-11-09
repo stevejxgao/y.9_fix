@@ -1,9 +1,9 @@
 class Movie < ActiveRecord::Base
-
-  #### Part 1 ####
-  # implement this method. Remeber to exclude [self]
-  # (the current movie) from your return value
-  def others_by_same_director
-    # Your code here #
+    def others_by_same_director()
+      # Note the current instructions are ambiguous about whether the 
+      # returned collection should contain the original movie as well.
+      # Either way is fine until this is specified.
+      Movie.where(:director => director) - [self]
+    end
   end
-end
+  
